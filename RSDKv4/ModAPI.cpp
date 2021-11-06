@@ -20,7 +20,19 @@ char modScriptPaths[OBJECT_COUNT][0x40];
 byte modScriptFlags[OBJECT_COUNT];
 byte modObjCount = 0;
 
-#include <filesystem>
+#if RETRO_PLATFORM != RETRO_OSX
+    #include <filesystem>
+    namespace std_filesystem = std::filesystem;
+#else
+    #include "TargetConditionals.h"
+    #if TARGET_CPU_ARM64
+    //Filesystem exists on all ARM Macs
+    #include <filesystem>
+    #elif TARGET_CPU_X86_64
+    //Filesystem does not exist before macOS 10.15 so use boost instead
+    #include <boost/filesystem.hpp>
+    #endif
+#endif
 #include <locale>
 
 int OpenModMenu()
@@ -32,6 +44,12 @@ int OpenModMenu()
 
 #if RETRO_PLATFORM == RETRO_ANDROID
 namespace fs = std::__fs::filesystem; // this is so we can avoid using c++17, which causes a ton of warnings w asio and looks ugly
+#elif RETRO_PLATFORM == RETRO_OSX
+    #if TARGET_CPU_ARM64
+    namespace fs = std::filesystem;
+    #elif TARGET_CPU_X86_64
+    namespace fs = boost::filesystem;
+    #endif
 #else
 namespace fs = std::filesystem;
 #endif
@@ -90,7 +108,7 @@ void InitMods()
         try {
             auto rdi = fs::directory_iterator(modPath);
             for (auto de : rdi) {
-                if (de.is_directory()) {
+                if (fs::is_directory(de)) {
                     fs::path modDirPath = de.path();
 
                     ModInfo info;
@@ -251,7 +269,7 @@ void ScanModFolder(ModInfo *info)
         try {
             auto data_rdi = fs::recursive_directory_iterator(dataPath);
             for (auto &data_de : data_rdi) {
-                if (data_de.is_regular_file()) {
+                if (fs::is_regular_file(data_de)) {
                     char modBuf[0x100];
                     StrCopy(modBuf, data_de.path().string().c_str());
                     char folderTest[4][0x10] = {
@@ -299,7 +317,7 @@ void ScanModFolder(ModInfo *info)
         try {
             auto data_rdi = fs::recursive_directory_iterator(bytecodePath);
             for (auto &data_de : data_rdi) {
-                if (data_de.is_regular_file()) {
+                if (fs::is_regular_file(data_de)) {
                     char modBuf[0x100];
                     StrCopy(modBuf, data_de.path().string().c_str());
                     char folderTest[4][0x10] = {
