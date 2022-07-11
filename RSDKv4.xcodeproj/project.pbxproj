@@ -262,9 +262,9 @@
 		C92835312646219900D51CCE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				C975E71F26E31AB200F09AD4 /* tinyxml2.h */,
-				C975E71E26E31AA800F09AD4 /* stb_image.h */,
 				C9283535264621C800D51CCE /* cocoaHelpers.hpp */,
+				C975E71E26E31AA800F09AD4 /* stb_image.h */,
+				C975E71F26E31AB200F09AD4 /* tinyxml2.h */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -272,8 +272,11 @@
 		C92835322646219F00D51CCE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				C975E72026E31AC000F09AD4 /* tinyxml2.cpp */,
 				C9283533264621BB00D51CCE /* cocoaHelpers.mm */,
+				9E4533012735E88400B04DCC /* IndirectMain.cpp */,
+				9E4532FF2735E88400B04DCC /* IndirectMain.h */,
+				9E4533002735E88400B04DCC /* main.mm */,
+				9E4532FD2735E81600B04DCC /* tinyxml2.cpp */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -309,23 +312,23 @@
 		C962193F25898B6700B47AB3 /* Source Files */ = {
 			isa = PBXGroup;
 			children = (
-				C975E71426E3199000F09AD4 /* ModAPI.cpp */,
-				C975E71326E3199000F09AD4 /* Networking.cpp */,
-				C975E71526E3199000F09AD4 /* Renderer.cpp */,
-				C92835322646219F00D51CCE /* Helpers */,
-				C96219AB25947C8F00B47AB3 /* Native Objects */,
 				C962195B25898BF500B47AB3 /* Animation.cpp */,
 				C962195625898BF500B47AB3 /* Audio.cpp */,
 				C962196A25898BF600B47AB3 /* Collision.cpp */,
 				C962195725898BF500B47AB3 /* Debug.cpp */,
 				C962195C25898BF500B47AB3 /* Drawing.cpp */,
+				C92835322646219F00D51CCE /* Helpers */,
 				C962195F25898BF600B47AB3 /* Ini.cpp */,
 				C962195D25898BF500B47AB3 /* Input.cpp */,
 				C962196325898BF600B47AB3 /* main.cpp */,
 				C962196825898BF600B47AB3 /* Math.cpp */,
+				C975E71426E3199000F09AD4 /* ModAPI.cpp */,
+				C96219AB25947C8F00B47AB3 /* Native Objects */,
+				C975E71326E3199000F09AD4 /* Networking.cpp */,
 				C962196725898BF600B47AB3 /* Object.cpp */,
 				C962196625898BF600B47AB3 /* Palette.cpp */,
 				C962196B25898BF600B47AB3 /* Reader.cpp */,
+				C975E71526E3199000F09AD4 /* Renderer.cpp */,
 				C962195825898BF500B47AB3 /* RetroEngine.cpp */,
 				C962195925898BF500B47AB3 /* Scene.cpp */,
 				C962196025898BF600B47AB3 /* Scene3D.cpp */,
@@ -341,22 +344,22 @@
 		C962194025898B6E00B47AB3 /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
-				C975E71926E319A600F09AD4 /* ModAPI.hpp */,
-				C975E71B26E319A600F09AD4 /* Networking.hpp */,
-				C975E71A26E319A600F09AD4 /* Renderer.hpp */,
-				C92835312646219900D51CCE /* Helpers */,
-				C96219AC25947CA100B47AB3 /* Native Objects */,
 				C962195525898BCE00B47AB3 /* Animation.hpp */,
 				C962194325898BCD00B47AB3 /* Audio.hpp */,
 				C962194625898BCD00B47AB3 /* Collision.hpp */,
 				C962194E25898BCD00B47AB3 /* Debug.hpp */,
 				C962194F25898BCD00B47AB3 /* Drawing.hpp */,
+				C92835312646219900D51CCE /* Helpers */,
 				C962194525898BCD00B47AB3 /* Ini.hpp */,
 				C962194425898BCD00B47AB3 /* Input.hpp */,
 				C962195425898BCE00B47AB3 /* Math.hpp */,
+				C975E71926E319A600F09AD4 /* ModAPI.hpp */,
+				C96219AC25947CA100B47AB3 /* Native Objects */,
+				C975E71B26E319A600F09AD4 /* Networking.hpp */,
 				C962195025898BCD00B47AB3 /* Object.hpp */,
 				C962194A25898BCD00B47AB3 /* Palette.hpp */,
 				C962195225898BCD00B47AB3 /* Reader.hpp */,
+				C975E71A26E319A600F09AD4 /* Renderer.hpp */,
 				C962194725898BCD00B47AB3 /* RetroEngine.hpp */,
 				C962194C25898BCD00B47AB3 /* Scene.hpp */,
 				C962195125898BCD00B47AB3 /* Scene3D.hpp */,
