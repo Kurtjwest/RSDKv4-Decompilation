@@ -547,7 +547,13 @@ void RenderScene()
             glBindTexture(GL_TEXTURE_2D, renderbufferHiRes);
             glVertexPointer(3, GL_FLOAT, sizeof(DrawVertex), state->vertPtr);
             glTexCoordPointer(2, GL_FLOAT, sizeof(DrawVertex), &state->vertPtr->texCoordX);
+            
+#if RETRO_PLATFORM == RETRO_OSX
+            float screenScale = getMacScreenScale();
+            glViewport(displaySettings.offsetX, 0, displaySettings.width * screenScale, displaySettings.height * screenScale);
+#else
             glViewport(displaySettings.offsetX, 0, displaySettings.width, displaySettings.height);
+#endif
             glPopMatrix();
             glMatrixMode(GL_MODELVIEW);
             glPopMatrix();
