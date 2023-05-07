@@ -20,19 +20,8 @@ char modScriptPaths[OBJECT_COUNT][0x40];
 byte modScriptFlags[OBJECT_COUNT];
 byte modObjCount = 0;
 
-#if RETRO_PLATFORM != RETRO_OSX
-    #include <filesystem>
-    namespace std_filesystem = std::filesystem;
-#else
-    #include "TargetConditionals.h"
-    #if TARGET_CPU_ARM64
-    //Filesystem exists on all ARM Macs
-    #include <filesystem>
-    #elif TARGET_CPU_X86_64
-    //Filesystem does not exist before macOS 10.15 so use boost instead
-    #include <boost/filesystem.hpp>
-    #endif
-#endif
+#include <filesystem>
+namespace std_filesystem = std::filesystem;
 #include <locale>
 
 int OpenModMenu()
@@ -44,12 +33,6 @@ int OpenModMenu()
 
 #if RETRO_PLATFORM == RETRO_ANDROID
 namespace fs = std::__fs::filesystem; // this is so we can avoid using c++17, which causes a ton of warnings w asio and looks ugly
-#elif RETRO_PLATFORM == RETRO_OSX
-    #if TARGET_CPU_ARM64
-    namespace fs = std::filesystem;
-    #elif TARGET_CPU_X86_64
-    namespace fs = boost::filesystem;
-    #endif
 #else
 namespace fs = std::filesystem;
 #endif
