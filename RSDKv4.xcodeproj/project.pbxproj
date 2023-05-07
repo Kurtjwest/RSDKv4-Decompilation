@@ -780,7 +780,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/dependencies/mac/glew/2.1.0_1/lib",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				"MACOSX_DEPLOYMENT_TARGET[arch=arm64]" = 11.0;
+				"MACOSX_DEPLOYMENT_TARGET[arch=arm64e]" = 11.0;
+				MARKETING_VERSION = "1.3.0-ae69d5c";
+				"OTHER_LDFLAGS[arch=x86_64]" = "$(SRCROOT)/dependencies/mac/boost.framework/boost";
 				PRODUCT_BUNDLE_IDENTIFIER = Decomp.RSDKv4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -818,7 +822,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/dependencies/mac/glew/2.1.0_1/lib",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
+				"MACOSX_DEPLOYMENT_TARGET[arch=arm64]" = 11.0;
+				"MACOSX_DEPLOYMENT_TARGET[arch=arm64e]" = 11.0;
+				MARKETING_VERSION = "1.3.0-ae69d5c";
+				"OTHER_LDFLAGS[arch=x86_64]" = "$(SRCROOT)/dependencies/mac/boost.framework/boost";
 				PRODUCT_BUNDLE_IDENTIFIER = Decomp.RSDKv4;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
