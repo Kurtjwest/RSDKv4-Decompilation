@@ -258,14 +258,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9ECD3A062A084808007119EA /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				C975E72026E31AC000F09AD4 /* tinyxml2.cpp */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		C92835312646219900D51CCE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -279,6 +271,7 @@
 		C92835322646219F00D51CCE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C975E72026E31AC000F09AD4 /* tinyxml2.cpp */,
 				C9283533264621BB00D51CCE /* cocoaHelpers.mm */,
 			);
 			name = Helpers;
@@ -290,7 +283,6 @@
 				C962191B25898A9300B47AB3 /* RSDKv4 */,
 				C962191A25898A9300B47AB3 /* Products */,
 				C96219822589B10600B47AB3 /* Frameworks */,
-				9ECD3A062A084808007119EA /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
