@@ -594,7 +594,12 @@ void SetScreenDimensions(int width, int height)
     SCREEN_CENTERX_F = aspect * SCREEN_CENTERY;
     SetPerspectiveMatrix(SCREEN_YSIZE * aspect, SCREEN_YSIZE_F, 0.0, 1000.0);
 #if RETRO_USING_OPENGL
+#if RETRO_PLATFORM == RETRO_OSX
+    float screenScale = getMacScreenScale();
+    glViewport(0, 0, displaySettings.width * screenScale, displaySettings.height * screenScale);
+#else
     glViewport(0, 0, displaySettings.width, displaySettings.height);
+#endif
 #endif
 
     Engine.useHighResAssets = displaySettings.height > (SCREEN_YSIZE * 2);
@@ -744,7 +749,12 @@ void SetupViewport()
     SetPerspectiveMatrix(90.0, 0.75, 1.0, 5000.0);
 
 #if RETRO_USING_OPENGL
+#if RETRO_PLATFORM == RETRO_OSX
+    float screenScale = getMacScreenScale();
+    glViewport(displaySettings.offsetX, 0, displaySettings.width * screenScale, displaySettings.height * screenScale);
+#else
     glViewport(displaySettings.offsetX, 0, displaySettings.width, displaySettings.height);
+#endif
 #endif
     int displayWidth = aspect * SCREEN_YSIZE;
 #if !RETRO_USE_ORIGINAL_CODE

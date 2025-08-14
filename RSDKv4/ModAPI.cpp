@@ -21,6 +21,7 @@ byte modScriptFlags[OBJECT_COUNT];
 byte modObjCount = 0;
 
 #include <filesystem>
+namespace std_filesystem = std::filesystem;
 #include <locale>
 
 void OpenModMenu()
@@ -89,7 +90,7 @@ void InitMods()
         try {
             auto rdi = fs::directory_iterator(modPath);
             for (auto de : rdi) {
-                if (de.is_directory()) {
+                if (fs::is_directory(de)) {
                     fs::path modDirPath = de.path();
 
                     ModInfo info;
@@ -250,7 +251,7 @@ void ScanModFolder(ModInfo *info)
         try {
             auto data_rdi = fs::recursive_directory_iterator(dataPath);
             for (auto &data_de : data_rdi) {
-                if (data_de.is_regular_file()) {
+                if (fs::is_regular_file(data_de)) {
                     char modBuf[0x100];
                     StrCopy(modBuf, data_de.path().string().c_str());
                     char folderTest[4][0x10] = {
@@ -298,7 +299,7 @@ void ScanModFolder(ModInfo *info)
         try {
             auto data_rdi = fs::recursive_directory_iterator(bytecodePath);
             for (auto &data_de : data_rdi) {
-                if (data_de.is_regular_file()) {
+                if (fs::is_regular_file(data_de)) {
                     char modBuf[0x100];
                     StrCopy(modBuf, data_de.path().string().c_str());
                     char folderTest[4][0x10] = {
